@@ -35,7 +35,7 @@ Alternatively, you can allow the app to detect your current position and display
 To toggle between Celsius and Fahrenheit temperature units, click the "Convert to Fahrenheit" or "Convert to Celsius" link below the temperature display.
 
 # Demo
-A live demo of the weather app can be found at [LINK TO LIVE DEMO](https://640bc889fbc9f71e21b36004--mellow-gaufre-5a4a59.netlify.app).
+A live demo of the weather app can be found at [LINK TO LIVE DEMO](https://weather-app-shemmee.netlify.app).
 
 # Contributing
 Contributions to the weather app are welcome! To contribute, simply fork this repository, make your changes, and submit a pull request.
