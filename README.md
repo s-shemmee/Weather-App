@@ -41,7 +41,7 @@ A live demo of the weather app can be found at [LINK TO LIVE DEMO]().
 Contributions to the weather app are welcome! To contribute, simply fork this repository, make your changes, and submit a pull request.
 
 # Credits
-The weather app was created by [Shemmee](https://github.com/s-shemmee) as a final project for the SheCodes Plus program.
+The weather app was created by [s-shemmee](https://github.com/s-shemmee) as a final project for the SheCodes Plus workshop.
 
 - The app uses the SheCodes weather API to retrieve weather data.
 
