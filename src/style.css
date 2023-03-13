@@ -10,6 +10,7 @@ body {
   font-family: "Poppins", sans-serif;
   line-height: normal;
   background-color: #ffb74d;
+	height: 100vh;
 }
 
 .header {
@@ -34,7 +35,7 @@ body {
   width: 800px;
   height: 500px;
   overflow: hidden;
-  background-image: url("/images/background.png");
+  background-image: url("../images/background.png");
   background-size: cover;
   background-position: center;
 }
@@ -113,7 +114,7 @@ body {
 }
 
 .location {
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 700;
   margin-top: 10px;
 }
@@ -210,7 +211,7 @@ body {
   font-weight: 500;
 }
 
-.weather-icon {
+.forecast-icon {
   max-width: 50px;
   margin-top: 5px;
 }
@@ -295,25 +296,32 @@ body {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #ccc;
-  margin: 10px;
+  margin: 8px;
 }
 
 .day:last-child {
   border-bottom: none;
 }
 
-.day img {
-  margin-right: 10px;
-  width: 30px;
-  height: 30px;
+.day-name {
+  font-weight: 700;
+  font-size: 10px;
+  text-transform: capitalize;
 }
 
-.day .day-temp {
-  font-weight: 300;
+.day img {
+  height: 35px;
 }
-.weather-info {
-  display: flex;
-  align-items: center;
+
+.day-temp {
+  font-weight: 300;
+  font-size: 10px;
+}
+
+.day-weather {
+  font-weight: 700;
+  font-size: 7px;
+  font-style: italic;
 }
 
 .credit {

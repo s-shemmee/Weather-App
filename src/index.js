@@ -63,12 +63,6 @@ function getLocation() {
   }
 }
 
-function showPosition(position) {
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  getWeatherData(lat, lon);
-}
-
 function showError(error) {
   switch (error.code) {
     case error.PERMISSION_DENIED:
@@ -143,6 +137,67 @@ function displayWeather(data) {
   weatherIcon.innerHTML = `<img src="${iconUrl}" alt="weather icon">`;
 }
 
+// 5 Day Forecast 
+
+function getForecastData(lat, lon, apiKey) {
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
+
+  fetch(apiUrl)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      displayForecast(data.daily);
+    })
+    .catch((error) => {
+      console.error("Error fetching forecast data:", error);
+    });
+}
+
+function displayForecast(forecastData) {
+  const forecastContainer = document.getElementById("forecast");
+  forecastContainer.innerHTML = ""; // clear previous content
+
+  const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  for (let i = 0; i < 5; i++) {
+    const day = forecastData[i];
+
+    const forecastCard = document.createElement("div");
+    forecastCard.classList.add("day");
+
+    const date = new Date(day.time * 1000); // convert UNIX timestamp to JS date
+    const dayOfWeek = daysOfWeek[date.getDay()]; // get day of week abbreviation
+
+    const iconUrl = day.condition.icon_url;
+    const description = day.condition.description;
+
+    const minTemp = Math.round(day.temperature.minimum);
+    const maxTemp = Math.round(day.temperature.maximum);
+
+    const forecastContent = `
+      <h6 class="day-name">${dayOfWeek}</h6>
+      <img src="${iconUrl}">
+      <h6 class="day-weather">${description}</h6>
+      <h6 class="day-temp">${minTemp}° / <strong>${maxTemp}°</stronng></h6>
+      `;
+
+    forecastCard.innerHTML = forecastContent;
+    forecastContainer.appendChild(forecastCard);
+  }
+}
+
+function showPosition(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiKey = "b03a640e5ef6980o4da35b006t5f2942";
+  getWeatherData(lat, lon);
+  getForecastData(lat, lon, apiKey);
+}
+
 getLocation();
 
 // Converting Temperature
@@ -182,3 +237,5 @@ function toggleTempUnit(event) {
 document
   .querySelector(".temp-toggle")
   .addEventListener("click", toggleTempUnit);
+
+

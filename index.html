@@ -4,6 +4,7 @@
     <title>Weather Web App</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="images/favicon-32x32.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -53,96 +54,54 @@
         <div class="forecasts-container">
           <div class="forecast">
             <h6 class="forecast-time">06:00 AM</h6>
-            <img src="images/clouds.png" class="weather-icon" />
+            <img src="images/clouds.png" class="forecast-icon" />
             <h6 class="forecast-temp">14°</h6>
           </div>
 
           <div class="forecast">
             <h6 class="forecast-time">09:00 AM</h6>
-            <img src="images/sunrise.png" class="weather-icon" />
+            <img src="images/sunrise.png" class="forecast-icon" />
             <h6 class="forecast-temp">18°</h6>
           </div>
 
           <div class="forecast">
             <h6 class="forecast-time">12:00 PM</h6>
-            <img src="images/sun.png" class="weather-icon" />
+            <img src="images/sun.png" class="forecast-icon" />
             <h6 class="forecast-temp">22°</h6>
           </div>
 
           <div class="forecast">
             <h6 class="forecast-time">03:00 PM</h6>
-            <img src="images/sun.png" class="weather-icon" />
+            <img src="images/sun.png" class="forecast-icon" />
             <h6 class="forecast-temp">24°</h6>
           </div>
 
           <div class="forecast">
             <h6 class="forecast-time">06:00 PM</h6>
-            <img src="images/sunrise.png" class="weather-icon" />
+            <img src="images/sunrise.png" class="forecast-icon" />
             <h6 class="forecast-temp">15°</h6>
           </div>
 
           <div class="forecast">
             <h6 class="forecast-time">09:00 PM</h6>
-            <img src="images/rain.png" class="weather-icon" />
+            <img src="images/rain.png" class="forecast-icon" />
             <h6 class="forecast-temp">11°</h6>
           </div>
         </div>
       </div>
 
       <div class="week-forecasts">
+        
         <h6>Outdoor Activity Suggestions :</h6>
         <div class="activity">
           <i class="fa-solid fa-chevron-left"></i>
           <img
-            src="images/woman-sitting-on-bicycle-ready-to-ride@2x.png"
-            alt=""
-          />
+            src="images/woman-sitting-on-bicycle-ready-to-ride@2x.png"/>
           <p>Go for a <span>bike</span> ride.</p>
           <i class="fa-solid fa-chevron-right"></i>
         </div>
-        <div class="days">
-          <h6>5-Days Forecats</h6>
-          <div class="day">
-            <h6 class="day-name">Tue</h6>
-            <div class="weather-info">
-              <img src="images/clouds.png" />
-              <h6 class="day-weather">Cloudy</h6>
-            </div>
-            <h6 class="day-temp">13°/ <strong>18°</strong></h6>
-          </div>
-          <div class="day">
-            <h6 class="day-name">Wed</h6>
-            <div class="weather-info">
-              <img src="images/rain.png" />
-              <h6 class="day-weather">Rainy</h6>
-            </div>
-            <h6 class="day-temp">7°/ <strong>13°</strong></h6>
-          </div>
-          <div class="day">
-            <h6 class="day-name">Thu</h6>
-            <div class="weather-info">
-              <img src="images/sun.png" />
-              <h6 class="day-weather">Sunny</h6>
-            </div>
-            <h6 class="day-temp">24°/ <strong>29°</strong></h6>
-          </div>
-          <div class="day">
-            <h6 class="day-name">Fri</h6>
-            <div class="weather-info">
-              <img src="images/sun.png" />
-              <h6 class="day-weather">Sunny</h6>
-            </div>
-            <h6 class="day-temp">24°/ <strong>26°</strong></h6>
-          </div>
-          <div class="day">
-            <h6 class="day-name">Sat</h6>
-            <div class="weather-info">
-              <img src="images/clouds.png" />
-              <h6 class="day-weather">Cloudy</h6>
-            </div>
-            <h6 class="day-temp">12°/ <strong>17°</strong></h6>
-          </div>
-        </div>
+        <h6>5-Days Forecats</h6>
+        <div class="days" id="forecast"></div>
       </div>
     </div>
 
