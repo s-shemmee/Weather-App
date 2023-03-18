@@ -6,7 +6,6 @@ This is a web app developed as a final project for SheCodes Plus using HTML, CSS
 - The app displays the current weather conditions such as temperature, weather description.
 - The app also displays a 5-day forecast of the weather conditions for the searched city.
 - The app uses SheCodes Weather API to fetch weather data for the searched city.
-- The app is responsive and works well on different screen sizes.
 - The app can detect the user's current position if they allow it.
 
 # Technologies & Tools Used
@@ -15,7 +14,6 @@ This is a web app developed as a final project for SheCodes Plus using HTML, CSS
 - JavaScript
 - VS Code
 - SheCodes Weather API
-- Bootstrap
 - Netlify
 
 # Installation and Usage
