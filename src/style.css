@@ -257,25 +257,26 @@ body {
 }
 
 .activity img {
-  max-width: 40%;
-  height: auto;
+
+  height: 100px;
   margin: 0 30px;
 }
 
-.activity i {
+.prev,
+.next {
+  position: absolute;
+  top: 25%;
+  transform: translateY(-50%);
   font-size: 20px;
   color: #ffb74d;
-  margin-top: 10px;
-  position: absolute;
-  top: 20%;
-  transform: translateY(-50%);
+  cursor: pointer;
 }
 
-.activity i.fa-chevron-left {
+.prev {
   left: 10px;
 }
 
-.activity i.fa-chevron-right {
+.next {
   right: 10px;
 }
 
@@ -285,10 +286,23 @@ body {
   color: #000;
   text-align: center;
   font-style: italic;
+  margin: 10px 5px 0;
 }
 
-.activity p span {
+.activity .pink {
   color: #e5aebf;
+}
+
+.activity .blue {
+  color: #71a2ab;
+}
+
+.activity .green {
+  color: #63867b;
+}
+
+.activity .yellow {
+  color: #d9af6b;
 }
 
 .day {
