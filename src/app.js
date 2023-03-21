@@ -137,6 +137,60 @@ function displayWeather(data) {
   weatherIcon.innerHTML = `<img src="${iconUrl}" alt="weather icon">`;
 }
 
+// Hourly Forecast
+
+function getHourlyData(lat, lon) {
+  let api_key = "b0c0cd6e9ac2703bc8d9959f958dda57";
+  let api_url = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric}`
+
+  fetch(api_url)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      displayHourly(data);
+    });
+}
+
+function displayHourly(data) {
+  let hourlyContainer = document.querySelector("#hourly-forecast");
+  hourlyContainer.innerHTML = "";
+
+  let counter = 0; 
+
+  for (let i = 0; i < data.list.length; i++) {
+    let hourly = data.list[i];
+    let hourlyTemp = (hourly.main.temp).toFixed(1).toString().slice(0, 2);
+    let hourlyIcon = hourly.weather[0].icon;
+    let hourlyTime = new Date(hourly.dt * 1000).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
+    if (hourlyTime === "06:00 AM" ||
+        hourlyTime === "09:00 AM" ||
+        hourlyTime === "12:00 PM" ||
+        hourlyTime === "03:00 PM" ||
+        hourlyTime === "06:00 PM" ||
+        hourlyTime === "09:00 PM") {
+      
+      let hourlyCard = document.createElement("div");
+      hourlyCard.classList.add("forecast");
+  
+      hourlyCard.innerHTML = `
+        <h6 class="forecast-time">${hourlyTime}</h6>
+        <img src="https://openweathermap.org/img/wn/${hourlyIcon}.png" alt="weather icon" class="forecast-icon">
+        <h6 class="forecast-temp">${hourlyTemp}°</h6>
+      `;
+      hourlyContainer.appendChild(hourlyCard);
+
+      counter++; 
+
+      if (counter === 6) { 
+        break;
+      }
+    }
+  }
+}
+
+
 // 5 Day Forecast 
 
 function getForecastData(lat, lon, apiKey) {
@@ -159,7 +213,7 @@ function getForecastData(lat, lon, apiKey) {
 
 function displayForecast(forecastData) {
   const forecastContainer = document.getElementById("forecast");
-  forecastContainer.innerHTML = ""; // clear previous content
+  forecastContainer.innerH
 
   const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
@@ -169,8 +223,8 @@ function displayForecast(forecastData) {
     const forecastCard = document.createElement("div");
     forecastCard.classList.add("day");
 
-    const date = new Date(day.time * 1000); // convert UNIX timestamp to JS date
-    const dayOfWeek = daysOfWeek[date.getDay()]; // get day of week abbreviation
+    const date = new Date(day.time * 1000); 
+    const dayOfWeek = daysOfWeek[date.getDay()]; 
 
     const iconUrl = day.condition.icon_url;
     const description = day.condition.description;
@@ -195,6 +249,7 @@ function showPosition(position) {
   let lon = position.coords.longitude;
   let apiKey = "b03a640e5ef6980o4da35b006t5f2942";
   getWeatherData(lat, lon);
+  getHourlyData(lat, lon);
   getForecastData(lat, lon, apiKey);
 }
 
