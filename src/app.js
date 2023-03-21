@@ -214,7 +214,7 @@ function getForecastData(lat, lon, apiKey) {
 
 function displayForecast(forecastData) {
   const forecastContainer = document.getElementById("forecast");
-  forecastContainer.innerH
+  forecastContainer.innerH = "";
 
   const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
