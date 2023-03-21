@@ -117,6 +117,8 @@ function searchCity(city) {
     });
 }
 
+// Displaying Current Weather Data
+
 function displayWeather(data) {
   let city = data.city;
   let country = data.country;
@@ -189,7 +191,6 @@ function displayHourly(data) {
     }
   }
 }
-
 
 // 5 Day Forecast 
 
@@ -289,10 +290,7 @@ function toggleTempUnit(event) {
   }
 }
 
-document
-  .querySelector(".temp-toggle")
-  .addEventListener("click", toggleTempUnit);
-
+document.querySelector(".temp-toggle").addEventListener("click", toggleTempUnit);
 
 // Activities Carousel  
 
@@ -329,6 +327,3 @@ displaySlide();
 setInterval(() => {
   nextBtn.click();
 }, 5000);
-
-
-
