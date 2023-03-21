@@ -154,43 +154,7 @@ function getHourlyData(lat, lon) {
     });
 }
 
-function displayHourly(data) {
-  let hourlyContainer = document.querySelector("#hourly-forecast");
-  hourlyContainer.innerHTML = "";
 
-  let counter = 0; 
-
-  for (let i = 0; i < data.list.length; i++) {
-    let hourly = data.list[i];
-    let hourlyTemp = (hourly.main.temp).toFixed(1).toString().slice(0, 2);
-    let hourlyIcon = hourly.weather[0].icon;
-    let hourlyTime = new Date(hourly.dt * 1000).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
-
-    if (hourlyTime === "06:00 AM" ||
-        hourlyTime === "09:00 AM" ||
-        hourlyTime === "12:00 PM" ||
-        hourlyTime === "03:00 PM" ||
-        hourlyTime === "06:00 PM" ||
-        hourlyTime === "09:00 PM") {
-      
-      let hourlyCard = document.createElement("div");
-      hourlyCard.classList.add("forecast");
-  
-      hourlyCard.innerHTML = `
-        <h6 class="forecast-time">${hourlyTime}</h6>
-        <img src="https://openweathermap.org/img/wn/${hourlyIcon}.png" alt="weather icon" class="forecast-icon">
-        <h6 class="forecast-temp">${hourlyTemp}°</h6>
-      `;
-      hourlyContainer.appendChild(hourlyCard);
-
-      counter++; 
-
-      if (counter === 6) { 
-        break;
-      }
-    }
-  }
-}
 
 // 5 Day Forecast 
 
