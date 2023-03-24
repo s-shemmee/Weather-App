@@ -1,19 +1,20 @@
 # Weather App
-This is a web app developed as a final project for SheCodes Plus using HTML, CSS, JavaScript, SheCodes Weather API and hosted on Netlify. The app allows users to search for the weather conditions of any city in the world, and also detects the user's current position if they allow it.
+This is a web app developed as a final project for SheCodes Plus using HTML, CSS, and Vanilla JavaScript. It is hosted on Netlify and utilizes both SheCodes Weather API and OpenWeatherMap API to fetch weather data. The app allows users to search for the weather conditions of any city in the world and provides current weather conditions, a 5-day forecast, and hourly forecasts. Additionally, the app can detect the user's current position if they allow it.
 
 # Features
 - Users can search for weather conditions of any city in the world.
-- The app displays the current weather conditions such as temperature, weather description.
-- The app also displays a 5-day forecast of the weather conditions for the searched city.
-- The app uses SheCodes Weather API to fetch weather data for the searched city.
+- The app displays the current weather conditions, including temperature and weather description.
+- The app provides a 5-day forecast for the searched city, including hourly forecasts.
 - The app can detect the user's current position if they allow it.
+- The app fetches weather data using both SheCodes Weather API and OpenWeatherMap API.
 
 # Technologies & Tools Used
 - HTML
 - CSS
-- JavaScript
+- Vanilla JavaScript
 - VS Code
 - SheCodes Weather API
+- OpenWeatherMap API
 - Netlify
 
 # Installation and Usage
@@ -41,7 +42,7 @@ Contributions to the weather app are welcome! To contribute, simply fork this re
 # Credits
 The weather app was created by [s-shemmee](https://github.com/s-shemmee) as a final project for the SheCodes Plus workshop.
 
-- The app uses the SheCodes weather API to retrieve weather data.
+- The app uses the SheCodes weather API and OpenWeatherMap API to retrieve weather data.
 
 # License
 This project is licensed under the MIT license.
