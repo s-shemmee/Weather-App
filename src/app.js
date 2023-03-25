@@ -137,13 +137,18 @@ function displayWeather(data) {
 
   let weatherIcon = document.querySelector(".weather-icon");
   weatherIcon.innerHTML = `<img src="${iconUrl}" alt="weather icon">`;
+  
+  getHourlyData(data.coordinates.latitude, data.coordinates.longitude);
+  getForecastData(data.coordinates.latitude, data.coordinates.longitude);
+
 }
 
 // Hourly Forecast
 
 function getHourlyData(lat, lon) {
   let api_key = "b0c0cd6e9ac2703bc8d9959f958dda57";
-  let api_url = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric}`;
+  let api_url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`;
+  console.log(api_url);
 
   fetch(api_url)
     .then((response) => {
@@ -156,25 +161,16 @@ function getHourlyData(lat, lon) {
 
 function displayHourly(data) {
   let hourlyContainer = document.querySelector("#hourly-forecast");
+  let hoursToShow = 6;
   hourlyContainer.innerHTML = "";
-
-  let counter = 0;
-
-  for (let i = 0; i < data.list.length; i++) {
+  
+  for (let i = 0; i < hoursToShow; i++) {
     let hourly = data.list[i];
     let hourlyTemp = hourly.main.temp;
-    let tempCelsius = Math.round(hourlyTemp - 273.15);
+    let tempCelsius = Math.round(hourlyTemp);
     let hourlyIcon = hourly.weather[0].icon;
     let hourlyTime = new Date(hourly.dt * 1000).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 
-    if (
-      hourlyTime === "06:00 AM" ||
-      hourlyTime === "09:00 AM" ||
-      hourlyTime === "12:00 PM" ||
-      hourlyTime === "03:00 PM" ||
-      hourlyTime === "06:00 PM" ||
-      hourlyTime === "09:00 PM"
-    ) {
       let hourlyCard = document.createElement("div");
       hourlyCard.classList.add("forecast");
 
@@ -184,21 +180,13 @@ function displayHourly(data) {
         <h6 class="forecast-temp">${tempCelsius}°</h6>
       `;
       hourlyContainer.appendChild(hourlyCard);
-
-      counter++;
-
-      if (counter === 6) {
-        break;
-      }
-    }
   }
 }
 
-
-
 // 5 Day Forecast 
 
-function getForecastData(lat, lon, apiKey) {
+function getForecastData(lat, lon) {
+  let apiKey = "b03a640e5ef6980o4da35b006t5f2942";
   let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
 
   fetch(apiUrl)
@@ -212,7 +200,7 @@ function getForecastData(lat, lon, apiKey) {
 
 function displayForecast(forecastData) {
   const forecastContainer = document.getElementById("forecast");
-  forecastContainer.innerH = "";
+  forecastContainer.innerHTML = "";
 
   const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
@@ -246,10 +234,8 @@ function displayForecast(forecastData) {
 function showPosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let apiKey = "b03a640e5ef6980o4da35b006t5f2942";
   getWeatherData(lat, lon);
-  getHourlyData(lat, lon);
-  getForecastData(lat, lon, apiKey);
+
 }
 
 getLocation();
