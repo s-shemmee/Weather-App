@@ -242,39 +242,35 @@ getLocation();
 
 // Converting Temperature
 
-function convertCelsiusToFahrenheit(temperature) {
-  return ((temperature * 9) / 5 + 32).toFixed(0);
-}
+function toggleTemperature() {
+  const temperatureDisplay = document.getElementById("temp-display");
+  const tempToggleLink = document.querySelector(".temp-toggle");
+  const tempUnit = document.querySelector(".temp-unit");
 
-function convertFahrenheitToCelsius(temperature) {
-  return (((temperature - 32) * 5) / 9).toFixed(0);
-}
-
-function toggleTempUnit(event) {
-  event.preventDefault();
-
-  let tempDisplay = document.querySelector("#temp-display");
-  let tempUnit = document.querySelector(".temp-unit");
-
-  let temperature = parseFloat(tempDisplay.textContent);
-  let currentUnit = tempUnit.textContent.includes("Celsius")
-    ? "Celsius"
-    : "Fahrenheit";
-
-  if (currentUnit === "Celsius") {
-    // Convert to Fahrenheit
-    tempDisplay.textContent = `${convertCelsiusToFahrenheit(temperature)}°`;
-    tempUnit.innerHTML =
-      'Fahrenheit <a href="#" class="temp-toggle">| Convert to Celsius</a>';
+  if (tempToggleLink.innerText === "| Convert to Fahrenheit") {
+    // Convert Celsius to Fahrenheit
+    const currentTemperature = parseFloat(temperatureDisplay.innerText);
+    const fahrenheitTemperature = (currentTemperature * 9/5) + 32;
+    temperatureDisplay.innerText = fahrenheitTemperature.toFixed(0) + "°";
+    tempUnit.innerHTML = `Fahrenheit <a href="#" class="temp-toggle">| Convert to Celsius</a>`;
   } else {
-    // Convert to Celsius
-    tempDisplay.textContent = `${convertFahrenheitToCelsius(temperature)}°`;
-    tempUnit.innerHTML =
-      'Celsius <a href="#" class="temp-toggle">| Convert to Fahrenheit</a>';
+    // Convert Fahrenheit to Celsius
+    const currentTemperature = parseFloat(temperatureDisplay.innerText);
+    const celsiusTemperature = (currentTemperature - 32) * 5/9;
+    temperatureDisplay.innerText = celsiusTemperature.toFixed(0) + "°";
+    tempUnit.innerHTML = `Celsius <a href="#" class="temp-toggle">| Convert to Fahrenheit</a>`;
   }
+
+  // Add event listener to the new toggle link
+  const newToggleLink = document.querySelector(".temp-toggle");
+  newToggleLink.addEventListener("click", toggleTemperature);
+
+  // Remove event listener from the old toggle link
+  tempToggleLink.removeEventListener("click", toggleTemperature);
 }
 
-document.querySelector(".temp-toggle").addEventListener("click", toggleTempUnit);
+const tempToggleLink = document.querySelector(".temp-toggle");
+tempToggleLink.addEventListener("click", toggleTemperature);
 
 // Activities Carousel  
 
