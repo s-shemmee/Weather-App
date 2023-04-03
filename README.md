@@ -36,13 +36,11 @@ To toggle between Celsius and Fahrenheit temperature units, click the "Convert t
 # Demo
 A live demo of the weather app can be found at [LINK TO LIVE DEMO](https://weather-app-shemmee.netlify.app).
 
-# Contributing
-Contributions to the weather app are welcome! To contribute, simply fork this repository, make your changes, and submit a pull request.
-
 # Credits
 The weather app was created by [s-shemmee](https://github.com/s-shemmee) as a final project for the SheCodes Plus workshop.
 
-- The app uses the SheCodes weather API and OpenWeatherMap API to retrieve weather data.
+- The app uses the [SheCodes weather API](https://www.shecodes.io/learn/apis/weather) and [OpenWeatherMap API](https://openweathermap.org) to retrieve weather data.
+- The illustrations used in the app are [3D casual life](https://icons8.com/illustrations/style--3d-casual-life).
 
 # License
 This project is licensed under the MIT license.
